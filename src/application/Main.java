@@ -1,11 +1,9 @@
 package application;
 	
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -16,14 +14,9 @@ import main.java.riotapi.RiotApi;
 import main.java.riotapi.RiotApiException;
 import constant.PlatformId;
 import constant.Region;
-import dto.Champion.Champion;
-import dto.Champion.ChampionList;
 import dto.CurrentGame.CurrentGameInfo;
 import dto.CurrentGame.Participant;
 import dto.League.League;
-import dto.MatchHistory.MatchSummary;
-import dto.MatchHistory.PlayerHistory;
-import dto.Stats.RankedStats;
 import dto.Summoner.Summoner;
 
 
@@ -35,7 +28,7 @@ public class Main extends Application {
 			RiotApi api = new RiotApi(key);
 			api.setRegion(Region.EUW);
 			Map<String, Summoner> summoners = api.getSummonersByName("tonlim, elite cart, wolftooth1, zerpee");
-			Summoner summoner = summoners.get("zerpee");
+			Summoner summoner = summoners.get("tonlim");
 			long id = summoner.getId();
 			long level = summoner.getSummonerLevel();
 			
@@ -114,6 +107,7 @@ public class Main extends Application {
 			
 			//api.getSummonersById();
 			
+			//300px is about 26 chars
 			
 			BorderPane root = new BorderPane();
 			
