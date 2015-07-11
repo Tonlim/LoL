@@ -31,11 +31,15 @@ public class CustomLeague {
 	public Pane getGui(){
 		GridPane res = new GridPane();
 		Text tierText = new Text(tier);
+		tierText.setWrappingWidth(75);
 		Text divisionText = new Text(division);
+		divisionText.setWrappingWidth(10);
 		Text queueText = new Text(queue);
+		queueText.setWrappingWidth(105);
 		res.add(tierText, 0, 0);
 		res.add(divisionText, 1, 0);
 		res.add(queueText, 2, 0);
+		res.setHgap(5); 	//horizontal padding
 		return res;
 	}
 	

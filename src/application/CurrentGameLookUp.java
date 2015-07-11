@@ -81,10 +81,12 @@ public class CurrentGameLookUp {
 			for(int i=0;i<team1.size();i++){
 				team1Pane.add(team1.get(i).getGui(), 0, i);
 			}
+			team1Pane.setVgap(10);
 			GridPane team2Pane = new GridPane();
 			for(int i=0;i<team2.size();i++){
 				team2Pane.add(team2.get(i).getGui(), 0, i);
 			}
+			team2Pane.setVgap(10);
 			
 			res.add(team1Pane, 0, 0);
 			Text line = new Text("_____________________________________________");
@@ -97,7 +99,7 @@ public class CurrentGameLookUp {
 			res.add(errorText, 0, 0);
 		}
 		
-		
+		res.setVgap(15); 	//vertical padding
 		return res;
 	}
 }

@@ -71,6 +71,7 @@ public class Database {
 		return champions;
 	}
 	
+	
 
 	/*
 	 * saves all changes to the database
@@ -90,9 +91,9 @@ public class Database {
 	 */
 	private void firstTimeSetUp(){
 		try {
-			Map<String, dto.Static.Champion> championsmap = api.getDataChampionList().getData();
+			Map<String, Champion> championsMap = api.getDataChampionList().getData();
 			champions = new ArrayList<Champion>();
-			champions.addAll(championsmap.values());
+			champions.addAll(championsMap.values());
 			save();
 		} catch(RiotApiException e){
 			e.printStackTrace();
