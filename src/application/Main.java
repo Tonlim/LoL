@@ -8,12 +8,13 @@ import java.util.Map;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.java.riotapi.RiotApi;
 import main.java.riotapi.RiotApiException;
 import constant.PlatformId;
 import constant.Region;
+import data.CustomLeague;
+import data.CustomPlayer;
 import dto.CurrentGame.CurrentGameInfo;
 import dto.CurrentGame.Participant;
 import dto.League.League;
@@ -101,7 +102,7 @@ public class Main extends Application {
 				
 			} catch(RiotApiException e){
 				System.out.println("No match found");
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 			
 			
@@ -109,8 +110,15 @@ public class Main extends Application {
 			
 			//300px is about 26 chars
 			
-			BorderPane root = new BorderPane();
+			//TESTING CODE for CustomPlayer
+			CustomPlayer testy = new CustomPlayer(summoner.getId(),0,summoner.getName(),0);
+			testy.addLeague(new CustomLeague("GOLD","V","SOLO_RANKED_5X5"));
 			
+			
+			
+			
+			BorderPane root = new BorderPane();
+			root.setCenter(testy.getGui());
 
 			
 			Scene scene = new Scene(root,400,400);
