@@ -1,6 +1,7 @@
 package application;
 	
 import iohandling.APIkey;
+import iohandling.Database;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ import data.CustomPlayer;
 import dto.CurrentGame.CurrentGameInfo;
 import dto.CurrentGame.Participant;
 import dto.League.League;
+import dto.Static.Champion;
 import dto.Summoner.Summoner;
 
 
@@ -114,6 +116,11 @@ public class Main extends Application {
 			//TESTING CODE for CustomPlayer
 			CustomPlayer testy = new CustomPlayer(summoner.getId(),0,summoner.getName(),0);
 			testy.addLeague(new CustomLeague("GOLD","V","SOLO_RANKED_5X5"));
+			
+			//TESTING CODE for Database
+			for(Champion i : Database.getDatabase().getChampions()){
+				System.out.println(i.getName());
+			}
 			
 			
 			

@@ -1,6 +1,9 @@
 # Personal API key
 API.key
 
+# Database
+database.dat
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
