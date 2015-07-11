@@ -1,5 +1,10 @@
 package application;
 	
+import iohandling.APIkey;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +15,7 @@ import dto.CurrentGame.Participant;
 import dto.Summoner.Summoner;
 import javafx.application.Application;
 import javafx.scene.Scene;
+
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -18,13 +24,25 @@ import javafx.stage.Stage;
 import main.java.riotapi.RiotApi;
 import main.java.riotapi.RiotApiException;
 
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import main.java.riotapi.RiotApi;
+import main.java.riotapi.RiotApiException;
+import constant.PlatformId;
+import constant.Region;
+import data.CustomLeague;
+import data.CustomPlayer;
+import dto.CurrentGame.CurrentGameInfo;
+import dto.CurrentGame.Participant;
+import dto.League.League;
+import dto.Summoner.Summoner;
+
 
 public class Main extends Application {
-	public static String key = "c751d8f3-2ea0-4f63-804c-6b90cc711cb8";
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			RiotApi api = new RiotApi(key);
+			RiotApi api = new RiotApi(APIkey.getKey());
 			api.setRegion(Region.EUW);
 			Map<String, Summoner> summoners = api.getSummonersByName("tonlim, elite cart, wolftooth1, zerpee, disney fired me,unrez");
 			Summoner summoner = summoners.get("elitecart");
@@ -108,13 +126,28 @@ public class Main extends Application {
 				
 			} catch(RiotApiException e){
 				System.out.println("No match found");
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 			
 			
 			//api.getSummonersById();
 			
 			//300px is about 26 chars
+	
+			/*TESTING CODE for CustomPlayer
+			CustomPlayer testy = new CustomPlayer(summoner.getId(),0,summoner.getName(),0);
+			testy.addLeague(new CustomLeague("GOLD","V","SOLO_RANKED_5X5"));
+			
+			
+			
+			BorderPane root = new BorderPane();
+			root.setCenter(testy.getGui());
+			
+			Scene scene = new Scene(root,400,400);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();*/
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
