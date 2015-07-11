@@ -200,7 +200,7 @@ public class Main extends Application {
 	
 	private void testingApiNick(Stage primaryStage){
 		BorderPane root = new BorderPane();
-		root.setCenter(CurrentGameLookUp.getGui("eikaa"));
+		root.setCenter(CurrentGameLookUp.getGui("tonlim"));
 		Scene scene = new Scene(root,600,700);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
